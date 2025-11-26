@@ -14,7 +14,6 @@ func FindBranch(c *gin.Context) {
 	var branches []models.Branch
 
 	database.DB.Find(&branches)
-
 	c.JSON(http.StatusOK, structs.SuccessResponse{
 		Success: true,
 		Message: "List Data Branch",
