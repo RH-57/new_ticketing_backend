@@ -17,7 +17,7 @@ type JwtCustomClaims struct {
 
 func GenerateToken(username string, role string) (string, error) {
 
-	expirationTime := time.Now().Add(60 * time.Minute)
+	expirationTime := time.Now().Add(8 * time.Hour)
 
 	claims := &JwtCustomClaims{
 		Username: username,

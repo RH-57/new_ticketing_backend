@@ -166,7 +166,7 @@ func DeleteBranch(c *gin.Context) {
 	if err := database.DB.Delete(&branch).Error; err != nil {
 		c.JSON(http.StatusInternalServerError, structs.ErrorResponse{
 			Success: false,
-			Message: "Failed TO Delete User",
+			Message: "Failed TO Delete Branch",
 			Errors:  helpers.TranslateErrorMessage(err),
 		})
 		return

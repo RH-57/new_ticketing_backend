@@ -60,6 +60,15 @@ func SetupRouter() *gin.Engine {
 				departments.PUT("/:id", controllers.UpdateDepartment)
 				departments.DELETE("/:id", controllers.DeleteDepartment)
 			}
+
+			categories := admin.Group("/categories")
+			{
+				categories.GET("", controllers.FindCategory)
+				categories.POST("", controllers.CreateCategory)
+				categories.GET("/:id", controllers.FindCategoryById)
+				categories.PUT("/:id", controllers.UpdateCategory)
+				categories.DELETE("/:id", controllers.DeleteCategory)
+			}
 		}
 	}
 	return router

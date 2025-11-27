@@ -7,7 +7,7 @@ import (
 )
 
 type Branch struct {
-	Id        uint           `json:"id" gorm:"primary_key"`
+	Id        uint           `json:"id" gorm:"primaryKey"`
 	Code      string         `json:"code" gorm:"unique;not null"`
 	Name      string         `json:"name" gorm:"not null"`
 	Divisions []Division     `json:"divisions,omitempty"`

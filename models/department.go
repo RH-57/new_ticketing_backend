@@ -7,7 +7,7 @@ import (
 )
 
 type Department struct {
-	Id         uint           `json:"id" gorm:"primary_key"`
+	Id         uint           `json:"id" gorm:"primaryKey"`
 	Name       string         `json:"name" gorm:"not null"`
 	DivisionId uint           `json:"division_id" gorm:"not null"`
 	Division   Division       `json:"-"`
