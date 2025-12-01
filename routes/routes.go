@@ -76,6 +76,15 @@ func SetupRouter() *gin.Engine {
 					sub.GET("/:subcategoryId", controllers.FindSubCategoryById)
 					sub.PUT("/:subcategoryId", controllers.UpdateSubCategory)
 					sub.DELETE("/:subcategoryId", controllers.DeleteSubCategory)
+
+					subsub := sub.Group("/:subcategoryId/subsubcategories")
+					{
+						subsub.GET("", controllers.FindSubSubCategory)
+						subsub.POST("", controllers.CreateSubSubCategory)
+						subsub.GET("/:subsubcategoryId", controllers.FindSubSubCategoryById)
+						subsub.PUT("/:subsubcategoryId", controllers.UpdateSubSubCategory)
+						subsub.DELETE("/:subsubcategoryId", controllers.DeleteSubSubCategory)
+					}
 				}
 			}
 		}
