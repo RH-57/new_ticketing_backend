@@ -64,11 +64,11 @@ func CreateCategory(c *gin.Context) {
 }
 
 func FindCategoryById(c *gin.Context) {
-	id := c.Param("id")
+	categoryId := c.Param("categoryId")
 
 	var category models.Category
 
-	if err := database.DB.First(&category, id).Error; err != nil {
+	if err := database.DB.First(&category, categoryId).Error; err != nil {
 		c.JSON(http.StatusNotFound, structs.ErrorResponse{
 			Success: false,
 			Message: "Category Not Found",
@@ -91,12 +91,12 @@ func FindCategoryById(c *gin.Context) {
 }
 
 func UpdateCategory(c *gin.Context) {
-	id := c.Param("id")
+	categoryId := c.Param("id")
 
 	var category models.Category
 
 	// Cek apakah category ada
-	if err := database.DB.First(&category, id).Error; err != nil {
+	if err := database.DB.First(&category, categoryId).Error; err != nil {
 		c.JSON(http.StatusNotFound, structs.ErrorResponse{
 			Success: false,
 			Message: "Category Not Found",
@@ -143,11 +143,11 @@ func UpdateCategory(c *gin.Context) {
 }
 
 func DeleteCategory(c *gin.Context) {
-	id := c.Param("id")
+	categoryId := c.Param("id")
 
 	var category models.Category
 
-	if err := database.DB.First(&category, id).Error; err != nil {
+	if err := database.DB.First(&category, categoryId).Error; err != nil {
 		c.JSON(http.StatusNotFound, structs.ErrorResponse{
 			Success: false,
 			Message: "Category Not Found",
